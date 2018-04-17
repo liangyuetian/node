@@ -6,9 +6,11 @@ var route = require("./src/config/path");
 var expressStatic = require("./src/expressStatic");
 var middleware = require("./src/middleware");
 var loadApiList = require("./src/api");
+var compression = require('compression');
 
 var app = express();
 
+app.use(compression()); // 开启gzip
 expressStatic(app); // 加载静态资源
 middleware(app); // 加载中间件
 loadApiList(app);
@@ -33,7 +35,7 @@ loadApiList(app);
 //     res.send(herf);
 // });
 
-var server = app.listen(6001, '127.0.0.1', function () {
+var server = app.listen(7001, '127.0.0.1', function () {
     var host = server.address().address;
     var port = server.address().port;
     console.log(host, port);

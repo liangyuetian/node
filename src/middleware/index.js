@@ -3,7 +3,7 @@ var path = require("path");
 var route = require("../config/path");
 var routeConfig = require("../config/routeList");
 var history = require('connect-history-api-fallback'); // 中间件
-
+var compression = require('compression');
 
 var historyConfig = {};
 
